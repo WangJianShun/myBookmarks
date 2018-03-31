@@ -22,7 +22,7 @@
     var keys = hashA['keys']
     var hash = hashA['hash']
     //2.生成键盘
-function generateKeyboard(keys,hash){}
+
     for (var index = 0; index < keys['length']; index = index + 1) {
       var div = tag('div', { className: 'row' })
 
@@ -42,11 +42,7 @@ function generateKeyboard(keys,hash){}
       }
     }
     //监听用户数据
-    document.onkeypress = function (gsdfgfsd) {
-      var key = gsdfgfsd['key']
-      var website = hash[key]
-      window.open('http://' + website, '_blank')
-    }
+    listen(hash)
 
 
 
@@ -83,6 +79,14 @@ function generateKeyboard(keys,hash){}
       }
     }
 
+function listen(hash){
+    document.onkeypress = function (gsdfgfsd) {
+      var key = gsdfgfsd['key']
+      var website = hash[key]
+      window.open('http://' + website, '_blank')
+    }
+    }
+
     function getFromLocalStorage(name) {
       return JSON.parse(localStorage.getItem(name) || 'null')
     }
@@ -101,7 +105,7 @@ function generateKeyboard(keys,hash){}
       span.textContent = textcontent
       return span
     }
-
+    
     function createButton(id) {
       var button = tag('button')
       button.textContent = ('编辑')
@@ -120,7 +124,6 @@ function generateKeyboard(keys,hash){}
       }
       return button
     }
-
     function createimg(domin) {
       var img = tag('img')
       if (domin) {
